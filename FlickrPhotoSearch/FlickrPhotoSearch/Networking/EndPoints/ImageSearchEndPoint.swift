@@ -9,7 +9,7 @@
 import Foundation
 
 struct ImageSearchEndPoint: FlickrResourceEndPoint {
-    var method: String
+    var method: String = "flickr.photos.search"
     var format: ResponseFormat
     var noJSONCallBack: Int
     
@@ -17,7 +17,6 @@ struct ImageSearchEndPoint: FlickrResourceEndPoint {
     var imageSize: PhotoSize
     
     private init(format: ResponseFormat, noJSONCallBack: Int, searchText: String, imageSize: PhotoSize) {
-        self.method = "flickr.photos.search"
         self.format = format
         self.noJSONCallBack = noJSONCallBack
         self.searchText = searchText
@@ -33,15 +32,11 @@ struct ImageSearchEndPoint: FlickrResourceEndPoint {
     
     func getQuery(baseURL: String, secret: String, apiKey: String, text: String) -> [String: String] {
         let urlEncodedSearchText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let queryParams: [String: String] = [
-            "method" : self.method,
+        return self.baseQueryParams + [
             "api_key" : apiKey,
             "secret": secret,
-            "format": self.format.rawValue,
-            "nojsoncallback": "\(self.noJSONCallBack)",
             "text": urlEncodedSearchText,
             "extras" : imageSize.searchExtraValue
         ]
-        return queryParams
     }
 }

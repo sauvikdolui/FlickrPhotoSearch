@@ -9,18 +9,16 @@
 import Foundation
 
 struct ImageDetailsEndPoint: FlickrResourceEndPoint {
-    var method: String
+    var method: String = "flickr.photos.getInfo"
     var format: ResponseFormat
     var noJSONCallBack: Int
     
     var imageID: String
     
     private init(format: ResponseFormat, noJSONCallBack: Int, imageID: String) {
-        self.method = "flickr.photos.getInfo"
         self.format = format
         self.noJSONCallBack = noJSONCallBack
         self.imageID = imageID
- 
     }
     init(imageID: String) {
         self.init(format: .JSON, noJSONCallBack: 1, imageID: imageID)
@@ -30,15 +28,11 @@ struct ImageDetailsEndPoint: FlickrResourceEndPoint {
         return URL(string: baseURL + getQueryDic(baseURL: baseURL, secret: secret, apiKey: apiKey).queryString)
     }
     // Unit Test Coverage
-    func getQueryDic(baseURL: String, secret: String, apiKey: String) -> [String: String] {
-        let queryParams: [String: String] = [
-            "method" : self.method,
+    func getQueryDic(baseURL: String, secret: String, apiKey: String) -> [String : String] {
+        return self.baseQueryParams + [
             "api_key" : apiKey,
             "secret": secret,
-            "format": self.format.rawValue,
-            "nojsoncallback": "\(self.noJSONCallBack)",
             "photo_id": self.imageID,
         ]
-        return queryParams
     }
 }

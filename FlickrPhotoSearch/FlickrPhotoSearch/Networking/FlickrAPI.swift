@@ -8,24 +8,10 @@
 
 import Foundation
 
-typealias SearchResult = (FlickrSearchResult?, Error?) -> Void
-typealias PhotoDetailsFetchResult = (PhotoDetailsResult?, Error?) -> Void
-
-enum FlickrAPIError : Error {
-    case invalidStatusCode(code: Int)
-    case invalidURL
-    case parsingError
-    case unknownError
-}
-
-
 class FlickrAPI: FlickrAPILoader {
     
-    
     // Singleton
-    static let store = FlickrAPI(apikey: AppConstants.flickrAPIKey,
-                                 secret: AppConstants.flickrAPISecret,
-                                 baseURL: AppConstants.baseURL)
+    private(set) static var store: FlickrAPI!
     
     let apiKey: String
     let secret: String
@@ -39,6 +25,9 @@ class FlickrAPI: FlickrAPILoader {
         self.baseURL = baseURL
     }
 
+    static func configWith(apikey: String, secret: String, baseURL: String) {
+        FlickrAPI.store =  FlickrAPI(apikey: apikey, secret: secret, baseURL: baseURL)
+    }
     
     
     func searchImage(searchText: String, handler: @escaping SearchResult) {
@@ -52,7 +41,7 @@ class FlickrAPI: FlickrAPILoader {
     }
     
     // MARK: - API Loads
-    func load<FlickrAPIResult>(endPoint: FlickrResourceEndPoint,
+    private func load<FlickrAPIResult>(endPoint: FlickrResourceEndPoint,
                                        handler: @escaping (FlickrAPIResult?, Error?) -> Void) where FlickrAPIResult : Decodable {
         
         // TODO: Cancel existing task if there if an ongoing one

@@ -8,26 +8,47 @@
 
 import Foundation
 
+typealias SearchResult = (FlickrSearchResult?, Error?) -> Void
+typealias PhotoDetailsFetchResult = (PhotoDetailsResult?, Error?) -> Void
+
+enum FlickrAPIError : Error {
+    case invalidStatusCode(code: Int)
+    case invalidURL
+    case parsingError
+    case unknownError
+}
+
+// MARK: - FlickrAPILoader
 protocol FlickrAPILoader {
     
-    // MARK: - Private Properties
-
+    // Properties
     var apiKey: String { get }
     var secret: String { get }
     
-    // MARK: - Initialization
+    // Initialization
     init(apikey: String, secret: String, baseURL: String)
     
-    // MARK: API Load
+    // API Load
     func searchImage(searchText: String, handler: @escaping SearchResult)
     func getDetails(id: String, handler: @escaping PhotoDetailsFetchResult)
 }
 
+// MARK: - FlickrResourceEndPoint
 protocol FlickrResourceEndPoint {
-    var method: String { get set }
-    var format: ResponseFormat { get set }
-    var noJSONCallBack: Int { get set}
+    var method: String { get }
+    var format: ResponseFormat { get }
+    var noJSONCallBack: Int { get }
     func getJSONLoadURL(baseURL: String, secret: String, apiKey: String) -> URL?
+}
+
+extension FlickrResourceEndPoint {
+    var baseQueryParams: [String : String] {
+        return [
+            "method" : self.method,
+            "format": self.format.rawValue,
+            "nojsoncallback": "\(self.noJSONCallBack)",
+        ]
+    }
 }
 
 enum ResponseFormat: String {

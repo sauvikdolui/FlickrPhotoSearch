@@ -13,7 +13,16 @@ extension Dictionary where Key == String, Value == String {
         let pairs = map({ return String($0.key + "=" + $0.value) })
         return "?" + pairs.joined(separator: "&")
     }
+    static func +(lhs: [String : String], rhs: [String : String]) -> [String : String] {
+        var result = lhs
+        for (key, val) in rhs { result[key] = val }
+        return result
+    }
+
+    
 }
+
+
 
 extension String {
     func isValidUrl() -> Bool {

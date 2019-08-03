@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        FlickrAPI.configWith(apikey: AppConstants.flickrAPIKey,
+                             secret: AppConstants.flickrAPISecret,
+                             baseURL: AppConstants.baseURL)
+        
+        
         window?.rootViewController = rootViewController(launchOptions: launchOptions)
         
         return true
