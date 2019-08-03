@@ -1,0 +1,342 @@
+{
+    "photo": {
+        "id": "48360268571",
+        "secret": "3b9c0bb13a",
+        "server": "0",
+        "farm": 0,
+        "dateuploaded": "1563922782",
+        "isfavorite": 0,
+        "license": "0",
+        "safety_level": "0",
+        "rotation": 0,
+        "owner": {
+            "nsid": "35797910@N08",
+            "username": "Glenn Losack M.D.",
+            "realname": "a Psychiatrist's view",
+            "location": "",
+            "iconserver": "683",
+            "iconfarm": 1,
+            "path_alias": "glosackmd"
+        },
+        "title": {
+            "_content": "INDIAVID001"
+        },
+        "description": {
+            "_content": "the ntypical nstreetnsceneninnevery ncitynnutter CHAOSnto the UNINITIATEDn ntotally normal nto  the  nlocal.nncatch the tout trying to ntake me to the spice marketnand Chadni Chowk  while nthe motorcyclist wants to bite his head offnfor being in his way.  nnTouts  are omnipresent ncannot be avoided.nnOLD DELHInin front of the JAMA MASJIDnthe largest MOSQUE in nthe largest Democracy in the worldnn"
+        },
+        "visibility": {
+            "ispublic": 1,
+            "isfriend": 0,
+            "isfamily": 0
+        },
+        "dates": {
+            "posted": "1563922782",
+            "taken": "2019-07-23 15:59:42",
+            "takengranularity": 0,
+            "takenunknown": "1",
+            "lastupdate": "1563956339"
+        },
+        "views": "227",
+        "editability": {
+            "cancomment": 0,
+            "canaddmeta": 0
+        },
+        "publiceditability": {
+            "cancomment": 1,
+            "canaddmeta": 0
+        },
+        "usage": {
+            "candownload": 0,
+            "canblog": 0,
+            "canprint": 0,
+            "canshare": 1
+        },
+        "comments": {
+            "_content": "0"
+        },
+        "notes": {
+            "note": []
+        },
+        "people": {
+            "haspeople": 0
+        },
+        "tags": {
+            "tag": [{
+                "id": "35705097-48360268571-393",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "india",
+                "_content": "india",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-17102",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "varanasi",
+                "_content": "varanasi",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-3739",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "photographer",
+                "_content": "photographer",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-45719",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "kolkata",
+                "_content": "kolkata",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-328389",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "mathura",
+                "_content": "mathura",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-37841",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "hinduism",
+                "_content": "hinduism",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-6094",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "islam",
+                "_content": "islam",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-6093",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "muslim",
+                "_content": "muslim",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-231226",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "jamamasjid",
+                "_content": "jamamasjid",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-14418077",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "glennlosack",
+                "_content": "glennlosack",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-482455",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "streetphotographer",
+                "_content": "streetphotographer",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-7683",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "STREETPHOTOGRAPHY",
+                "_content": "streetphotography",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-298673",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "olddelhi",
+                "_content": "olddelhi",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-5898",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "delhi",
+                "_content": "delhi",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-32086",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "mumbai",
+                "_content": "mumbai",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-143496",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "beggars",
+                "_content": "beggars",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-58898",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "begging",
+                "_content": "begging",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-49926",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "leprosy",
+                "_content": "leprosy",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-2007233",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "hansen'sdisease",
+                "_content": "hansensdisease",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-153655",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "hansen's",
+                "_content": "hansens",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-7688",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "PHOTOJOURNALISM",
+                "_content": "photojournalism",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-158315",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "photojournalist",
+                "_content": "photojournalist",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-10680111",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "vindravan",
+                "_content": "vindravan",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-126915",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "ganges",
+                "_content": "ganges",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-6925",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "poor",
+                "_content": "poor",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-23",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "poverty",
+                "_content": "poverty",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-13270",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "hunger",
+                "_content": "hunger",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-5454",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "invisible",
+                "_content": "invisible",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-78598",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "mosques",
+                "_content": "mosques",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-16029",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "temples",
+                "_content": "temples",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-501363",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "jagganath",
+                "_content": "jagganath",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-42161",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "mysore",
+                "_content": "mysore",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-51030",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "madurai",
+                "_content": "madurai",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-1442300",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "albinism",
+                "_content": "albinism",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-17042",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "albino",
+                "_content": "albino",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-466037",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "vitiligo",
+                "_content": "vitiligo",
+                "machine_tag": 0
+            }, {
+                "id": "35705097-48360268571-132677",
+                "author": "35797910@N08",
+                "authorname": "Glenn Losack M.D.",
+                "raw": "cremation",
+                "_content": "cremation",
+                "machine_tag": 0
+            }]
+        },
+        "urls": {
+            "url": [{
+                "type": "photopage",
+                "_content": "https://www.flickr.com/photos/glosackmd/48360268571/"
+            }]
+        },
+        "media": "video",
+        "video": {
+            "ready": 1,
+            "failed": 0,
+            "pending": 0,
+            "duration": "42",
+            "width": 500,
+            "height": 281
+        }
+    },
+    "stat": "ok"
+}
