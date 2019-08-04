@@ -23,7 +23,19 @@ class ImageStoreTest: XCTestCase {
     }
     func test_image_load() {
         
-        let photo = Photo(id: "48256336996", owner: "33264540@N05", secret: "5a53a81b31", server: "65535", farm: 66, title: "fish kebab seller at Zakaria street, Kolkata", ispublic: 1, isfriend: 0, isfamily: 0, urlT: "https://live.staticflickr.com/65535/48256336996_5a53a81b31_t.jpg", heightT: "68", widthT: "100")
+        let photo = Photo(id: "48256336996",
+                          owner: "33264540@N05",
+                          secret: "5a53a81b31",
+                          server: "65535",
+                          farm: 66,
+                          title: "fish kebab seller at Zakaria street, Kolkata",
+                          ispublic: 1,
+                          isfriend: 0,
+                          isfamily: 0,
+                          urlT: "https://live.staticflickr.com/65535/48256336996_5a53a81b31_t.jpg",
+                          heightT: "68",
+                          widthT: "100",
+                          photoLoadStatus: .unknown)
         
         var expectations = [XCTestExpectation]()
         for size in PhotoSize.allCases {

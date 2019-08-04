@@ -21,6 +21,13 @@ struct Photos: Codable {
     let photo: [Photo]
 }
 
+enum PhotoLoadStatus: Int {
+    case unknown
+    case loaded
+    case loading
+    case loadError
+}
+
 enum PhotoSize: Int, CaseIterable {
     case thumbNail
     case medium
@@ -47,6 +54,8 @@ struct Photo: Codable {
     let ispublic, isfriend, isfamily: Int
     let urlT: String
     let heightT, widthT: String
+    
+    var photoLoadStatus: PhotoLoadStatus = .unknown
     
     enum CodingKeys: String, CodingKey {
         case id, owner, secret, server, farm, title, ispublic, isfriend, isfamily

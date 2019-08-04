@@ -12,16 +12,15 @@ protocol SearchImageViewModelType: AnyObject {
     var view: SearchImageVCType? { get set }
     var title: String? { get set }
 
-    init(view: SearchImageVCType, title: String, api: FlickrAPI)
-    
+    init(view: SearchImageVCType, title: String, api: FlickrAPI, imageStore: ImageStore)
     func viewDidLoad()
     func numberOfSections() -> Int
     func numberOfRowsInSection(_ section: Int) -> Int
     func didTapOnImageCellAtIndexPath(_ indexPath: IndexPath)
     func searchImageForText(_ text: String)
     func photoAtIndexPath(_ indexPath: IndexPath) -> Photo?
-    func loadImageFromURL(string: String, handler: @escaping ImageLoadResult)
-    
+    func loadImageForIndexPath(indexPath: IndexPath, handler: @escaping ImageLoadResult) 
+
 }
 protocol SearchImageVCType: AnyObject {
     func setTitle(_ title: String)
@@ -30,6 +29,6 @@ protocol SearchImageVCType: AnyObject {
     func navigateToDetailsView(model: Photo)
     func receiveZeroResultCount()
     func didFaceErrorWhileSearch(error: String)
-
-    
+    func imageDataLoadedFor(indexPath: IndexPath, data: Data?, error: Error?)
+    func imageLoadStatusChangedTo( status: PhotoLoadStatus, at indexPath: IndexPath)
 }

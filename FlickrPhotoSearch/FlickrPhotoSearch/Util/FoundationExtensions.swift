@@ -18,8 +18,6 @@ extension Dictionary where Key == String, Value == String {
         for (key, val) in rhs { result[key] = val }
         return result
     }
-
-    
 }
 
 

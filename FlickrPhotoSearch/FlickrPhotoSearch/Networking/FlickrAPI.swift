@@ -30,24 +30,24 @@ class FlickrAPI: FlickrAPILoader {
     }
     
     
-    func searchImage(searchText: String, handler: @escaping SearchResult) {
+    func searchImage(searchText: String, handler: @escaping SearchResult) -> URLSessionDataTask? {
         let endPoint = ImageSearchEndPoint(searchText: searchText, imageSize: .thumbNail)
-        load(endPoint: endPoint, handler: handler)
+        return load(endPoint: endPoint, handler: handler)
     }
     
-    func getDetails(id: String, handler: @escaping PhotoDetailsFetchResult) {
+    func getDetails(id: String, handler: @escaping PhotoDetailsFetchResult) -> URLSessionDataTask? {
         let endPoint = ImageDetailsEndPoint(imageID: id)
-        load(endPoint: endPoint, handler: handler)
+        return load(endPoint: endPoint, handler: handler)
     }
     
     // MARK: - API Loads
     private func load<FlickrAPIResult>(endPoint: FlickrResourceEndPoint,
-                                       handler: @escaping (FlickrAPIResult?, Error?) -> Void) where FlickrAPIResult : Decodable {
+                                       handler: @escaping (FlickrAPIResult?, Error?) -> Void) -> URLSessionDataTask? where FlickrAPIResult : Decodable {
         
         // TODO: Cancel existing task if there if an ongoing one
         guard let url = endPoint.getJSONLoadURL(baseURL: self.baseURL, secret: self.secret, apiKey: self.apiKey) else {
             handler(nil, FlickrAPIError.invalidURL)
-            return
+            return nil
         }
         let dataTask = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
             
@@ -70,6 +70,7 @@ class FlickrAPI: FlickrAPILoader {
             }
         }
         dataTask.resume()
+        return dataTask
     }
     // TODO: Add support for loading arrays
 }

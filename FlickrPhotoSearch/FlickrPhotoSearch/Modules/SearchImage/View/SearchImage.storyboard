@@ -43,12 +43,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVl-ue-Zot" userLabel="Image">
-                                                    <rect key="frame" x="8" y="8" width="60" height="58"/>
+                                                    <rect key="frame" x="8" y="8" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="7Pg-O6-FBh"/>
-                                                        <constraint firstAttribute="width" secondItem="hVl-ue-Zot" secondAttribute="height" multiplier="30:29" id="JMq-sg-ZUW"/>
+                                                        <constraint firstAttribute="width" secondItem="hVl-ue-Zot" secondAttribute="height" multiplier="1:1" id="JMq-sg-ZUW"/>
                                                     </constraints>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fNw-uz-vgS">
+                                                    <rect key="frame" x="28" y="28" width="20" height="20"/>
+                                                </activityIndicatorView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1E-KQ-rcv" userLabel="Name">
                                                     <rect key="frame" x="80" y="8" width="326" height="76.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -57,10 +60,12 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hVl-ue-Zot" secondAttribute="bottom" constant="8" id="8o4-fX-XW7"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hVl-ue-Zot" secondAttribute="bottom" priority="999" constant="8" id="8o4-fX-XW7"/>
                                                 <constraint firstItem="n1E-KQ-rcv" firstAttribute="top" secondItem="hVl-ue-Zot" secondAttribute="top" id="O0q-Fx-GQ5"/>
                                                 <constraint firstItem="hVl-ue-Zot" firstAttribute="top" secondItem="2Zj-P6-ZSs" secondAttribute="top" constant="8" id="eFK-G1-a7c"/>
                                                 <constraint firstAttribute="trailing" secondItem="n1E-KQ-rcv" secondAttribute="trailing" constant="8" id="ekg-HG-Ldk"/>
+                                                <constraint firstItem="fNw-uz-vgS" firstAttribute="centerX" secondItem="hVl-ue-Zot" secondAttribute="centerX" id="fZm-ND-Stq"/>
+                                                <constraint firstItem="fNw-uz-vgS" firstAttribute="centerY" secondItem="hVl-ue-Zot" secondAttribute="centerY" id="rbg-5f-Dp8"/>
                                                 <constraint firstItem="n1E-KQ-rcv" firstAttribute="leading" secondItem="hVl-ue-Zot" secondAttribute="trailing" constant="12" id="uDM-c3-GSJ"/>
                                                 <constraint firstItem="hVl-ue-Zot" firstAttribute="leading" secondItem="2Zj-P6-ZSs" secondAttribute="leading" constant="8" id="unP-8A-zFW"/>
                                                 <constraint firstAttribute="bottom" secondItem="n1E-KQ-rcv" secondAttribute="bottom" constant="8" id="vLg-1z-qUL"/>
@@ -68,6 +73,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imageNameLabel" destination="n1E-KQ-rcv" id="psC-Es-vDj"/>
+                                            <outlet property="spinner" destination="fNw-uz-vgS" id="fHE-PR-Np9"/>
                                             <outlet property="t_imageView" destination="hVl-ue-Zot" id="0vR-Ox-Gvo"/>
                                         </connections>
                                     </tableViewCell>

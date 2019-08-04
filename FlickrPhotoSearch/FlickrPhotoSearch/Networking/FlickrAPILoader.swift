@@ -29,8 +29,8 @@ protocol FlickrAPILoader {
     init(apikey: String, secret: String, baseURL: String)
     
     // API Load
-    func searchImage(searchText: String, handler: @escaping SearchResult)
-    func getDetails(id: String, handler: @escaping PhotoDetailsFetchResult)
+    func searchImage(searchText: String, handler: @escaping SearchResult) -> URLSessionDataTask?
+    func getDetails(id: String, handler: @escaping PhotoDetailsFetchResult) -> URLSessionDataTask?
 }
 
 // MARK: - FlickrResourceEndPoint

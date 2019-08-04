@@ -15,10 +15,15 @@ class SearchImageVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var statusLable: UILabel!
     
+    // Dependency Injection
+    let imageStore = ImageStore.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _viewModel = SearchImageViewModel(view: self, title: "Flickr Image Search", api: FlickrAPI.store)
+        _viewModel = SearchImageViewModel(view: self,
+                                          title: "Flickr Image Search",
+                                          api: FlickrAPI.store,
+                                          imageStore: imageStore)
         _viewModel?.viewDidLoad()
         
         statusLable.text = "Start typing to get result"
@@ -52,7 +57,8 @@ extension SearchImageVC: UISearchBarDelegate {
 extension SearchImageVC: SearchImageVCType {
     func didStartANewSearch() {
         // TODO: Show Spinner
-        
+        tableView.reloadData()
+
     }
     func noResultFound() {
         statusLable.text = "NO RESULT FOUND"
@@ -66,6 +72,7 @@ extension SearchImageVC: SearchImageVCType {
         tableView.isHidden = false
         statusLable.isHidden = !tableView.isHidden
         tableView.reloadData()
+        loadImagesAtIndexPaths(tableView.indexPathsForVisibleRows)
     }
     func navigateToDetailsView(model: Photo) {
         let vc = UIStoryboard(name: "SearchDetails", bundle: nil).instantiateViewController(withIdentifier: "SearchDetailsVC") as! SearchDetailsVC
@@ -81,6 +88,15 @@ extension SearchImageVC: SearchImageVCType {
         statusLable.text = "Error: \(error)"
         tableView.isHidden = true
         statusLable.isHidden = !tableView.isHidden
+    }
+    func imageDataLoadedFor(indexPath: IndexPath, data: Data?, error: Error?){
+        guard let cell = tableView.cellForRow(at: indexPath) as? SearchResultCell else { return }
+        cell.imageDataLoaded(data: data, error: error)
+    }
+    func imageLoadStatusChangedTo( status: PhotoLoadStatus, at indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? SearchResultCell else { return }
+        cell.imageLoadUpdate(status: status)
+
     }
 
 }
@@ -100,7 +116,7 @@ extension SearchImageVC : UITableViewDataSource {
         guard let model = _viewModel?.photoAtIndexPath(indexPath) else {
             return cell
         }
-        cell.configWithPhoto(model)
+        cell.configWithPhoto(model, indexPath: indexPath)
         cell.viewModel = self._viewModel
         return cell
     }
@@ -115,6 +131,22 @@ extension SearchImageVC : UITableViewDelegate {
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // TODO: Load Images only for visible cells only
+        guard let tableView = scrollView as? UITableView else { return }
+        guard let visibleCellIndexPaths = tableView.indexPathsForVisibleRows else { return }
+        self.loadImagesAtIndexPaths(visibleCellIndexPaths)
+    }
+}
+
+
+// MARK: - Private helpers
+private extension SearchImageVC {
+    func loadImagesAtIndexPaths(_ indexPaths: [IndexPath]?) {
         
+        guard let indexPaths = indexPaths else { return }
+        
+        for indexPath in indexPaths {
+            let cell = tableView.cellForRow(at: indexPath ) as? SearchResultCell
+            cell?.loadImage()
+        }
     }
 }

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FlickrAPI.configWith(apikey: AppConstants.flickrAPIKey,
                              secret: AppConstants.flickrAPISecret,
-                             baseURL: AppConstants.baseURL)
+                            baseURL: AppConstants.baseURL)
         
         
         window?.rootViewController = rootViewController(launchOptions: launchOptions)
@@ -66,7 +66,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 // TODO: Create a separete Builder for Each Module
                 let view = UIStoryboard(name: "SearchDetails", bundle: nil).instantiateViewController(withIdentifier: "SearchDetailsVC") as! SearchDetailsVC
-                let testphoto = Photo(id: "48256336996", owner: "33264540@N05", secret: "5a53a81b31", server: "65535", farm: 66, title: "fish kebab seller at Zakaria street, Kolkata", ispublic: 1, isfriend: 0, isfamily: 0, urlT: "https://live.staticflickr.com/65535/48256336996_5a53a81b31_t.jpg", heightT: "68", widthT: "100")
+                let testphoto = Photo(id: "48256336996",
+                                      owner: "33264540@N05",
+                                      secret: "5a53a81b31",
+                                      server: "65535",
+                                      farm: 66,
+                                      title: "fish kebab seller at Zakaria street, Kolkata",
+                                      ispublic: 1,
+                                      isfriend: 0,
+                                      isfamily: 0,
+                                      urlT: "https://live.staticflickr.com/65535/48256336996_5a53a81b31_t.jpg",
+                                      heightT: "68",
+                                      widthT: "100",
+                                      photoLoadStatus: .unknown)
                 let vm = SearchDetailsViewModel(view: view, title: "Image Details", photo: testphoto, api: FlickrAPI.store)
                 ImageStore.shared.purge()
                 view.viewModel = vm

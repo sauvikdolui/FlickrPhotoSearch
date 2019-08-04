@@ -11,7 +11,6 @@ import Foundation
 protocol SearchDetailsViewModelType {
     func loadDetailsForImage( id: String)
     func viewDidAppear(animated: Bool)
-    
 }
 
 protocol SearchDetailsVCType: AnyObject {

@@ -16,18 +16,48 @@ class SearchImageViewModel {
     private var _results = [Photo]()
     
     private let _api: FlickrAPI
+    private let _imageStore: ImageStore
+    private var _ongoingSearchTask: URLSessionDataTask?
     
-    required init(view: SearchImageVCType, title: String, api: FlickrAPI){
+    required init(view: SearchImageVCType, title: String, api: FlickrAPI, imageStore: ImageStore){
         self.view = view
         self.title = title
         self._api = api
+        self._imageStore = imageStore
     }
     func viewDidLoad() {
         self.view?.setTitle(self.title!)
     }
-    func loadImageFromURL(string: String, handler: @escaping ImageLoadResult) {
-        ImageStore.shared.loadImage(url: string, handler: handler)
+    func loadImageForIndexPath(indexPath: IndexPath, handler: @escaping ImageLoadResult) {
+        guard indexPath.row < self._results.count else { return }
+        let photo =  _results[indexPath.row]
+
+        // Check cache
+        if let imageData = _imageStore.getImageData(key: photo.urlT) {
+            _results[indexPath.row].photoLoadStatus = .loaded
+            view?.imageLoadStatusChangedTo(status: .loaded, at: indexPath)
+            view?.imageDataLoadedFor(indexPath: indexPath, data: imageData, error: nil)
+            return
+        }
+        
+        // Donload API
+        _results[indexPath.row].photoLoadStatus = .loading
+        view?.imageLoadStatusChangedTo(status: .loading, at: indexPath)
+
+        _imageStore.loadImage(url: _results[indexPath.row].urlT, handler: { [weak self] (data, error) in
+            guard let welf = self else { return }
+            guard indexPath.row < welf._results.count else { return }
+            if let _ = error {
+                welf._results[indexPath.row].photoLoadStatus = .loadError
+            } else if let _ = data {
+                welf._results[indexPath.row].photoLoadStatus = .loaded
+            }
+            welf.view?.imageLoadStatusChangedTo(status: welf._results[indexPath.row].photoLoadStatus, at: indexPath)
+            welf.view?.imageDataLoadedFor(indexPath: indexPath, data: data, error: error)
+        })
     }
+    
+    // TODO: invalidate all on going network requests when search string changes
 
     
 }
@@ -39,11 +69,12 @@ extension SearchImageViewModel: SearchImageViewModelType {
         guard trimmed.count > 0 else {
             return
         }
+        _ongoingSearchTask?.cancel()
         self._results = [Photo]()
         self.view?.didStartANewSearch()
         
         
-        _api.searchImage(searchText: trimmed) { [weak self] (result, error) in
+        _ongoingSearchTask = _api.searchImage(searchText: trimmed) { [weak self] (result, error) in
             guard let welf = self else{ return }
             if let result = result {
                 welf._results = result.photos.photo
