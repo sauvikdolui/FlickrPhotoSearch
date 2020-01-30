@@ -53,7 +53,7 @@ struct Photo: Codable {
     let title: String
     let ispublic, isfriend, isfamily: Int
     let urlT: String
-    let heightT, widthT: String
+    let heightT, widthT: Int
     
     var photoLoadStatus: PhotoLoadStatus = .unknown
     

@@ -30,9 +30,9 @@ class FlickrImageSearchModelTest: XCTestCase {
         XCTAssertEqual(result.stat, "ok", "stat Must not be nil")
         XCTAssertNotNil(result.photos, "Photos Must not be nil")
         XCTAssertEqual(result.photos.page, 1, "page index not same")
-        XCTAssertEqual(result.photos.pages, 3, "total page count not same")
+        XCTAssertEqual(result.photos.pages, 32, "total page count not same")
         XCTAssertEqual(result.photos.perpage, 100, "perpage count not same")
-        XCTAssertEqual(result.photos.total, "285", "total count not same")
+        XCTAssertEqual(result.photos.total, "3113", "total count not same")
         XCTAssertGreaterThan(result.photos.photo.count, 0, "first page total count mus not be 0")
         
         for photo in result.photos.photo {

@@ -33,7 +33,7 @@ class FlickrImageSearchUITest: XCTestCase {
         app.launch()
         XCTAssertTrue(app.isSearchOnScreen, "Did not find screen, test failed")
         
-        let statusLabel = app.staticTexts.firstMatch
+        let statusLabel = app.staticTexts.allElementsBoundByIndex[1]
         XCTAssertTrue(statusLabel.waitForExistence(timeout: 2.0), "statusLabel must be there ")
         XCTAssertTrue(statusLabel.label == "Start typing to get result")
 
@@ -45,8 +45,10 @@ class FlickrImageSearchUITest: XCTestCase {
         
         // Search Result on Table View
         let tableView = app.tables.firstMatch
+        // let updated status label
+        let updatedStaticLabel = app.staticTexts["Start typing to get result"]
         XCTAssertTrue(tableView.waitForExistence(timeout: 10.0), "Table View Must appear")
-        //XCTAssertFalse(statusLabel.waitForExistence(timeout: 10.0), "statusLabel must not be visible ")
+        XCTAssertFalse(updatedStaticLabel.waitForExistence(timeout: 2.0), "statusLabel must not be visible ")
         
         let screenshot = XCTAttachment(screenshot: app.screenshot())
         screenshot.name = "Search Success"
@@ -58,7 +60,7 @@ class FlickrImageSearchUITest: XCTestCase {
         app.launch()
         XCTAssertTrue(app.isSearchOnScreen, "Did not find screen, test failed")
         
-        let statusLabel = app.staticTexts.firstMatch
+        let statusLabel = app.staticTexts.allElementsBoundByIndex[1]
         XCTAssertTrue(statusLabel.waitForExistence(timeout: 2.0), "statusLabel must be there ")
         let searchBar = app.searchFields.firstMatch
         XCTAssertTrue(searchBar.exists, "Did not find serach bar on screen")
@@ -67,7 +69,7 @@ class FlickrImageSearchUITest: XCTestCase {
         
         
         // Search Result on Table View
-        XCTAssertTrue(statusLabel.waitForExistence(timeout: 20.0), "statusLabel must be visible ")
+        XCTAssertTrue(statusLabel.waitForExistence(timeout: 2.0), "statusLabel must be visible ")
         XCTAssertTrue(statusLabel.label == "NO RESULT FOUND")
 
         let screenshot = XCTAttachment(screenshot: app.screenshot())
@@ -81,7 +83,7 @@ class FlickrImageSearchUITest: XCTestCase {
         app.launch()
         XCTAssertTrue(app.isSearchOnScreen, "Did not find screen, test failed")
         
-        let statusLabel = app.staticTexts.firstMatch
+        let statusLabel = app.staticTexts.allElementsBoundByIndex[1]
         XCTAssertTrue(statusLabel.waitForExistence(timeout: 2.0), "statusLabel must be there ")
         
         
@@ -99,8 +101,9 @@ class FlickrImageSearchUITest: XCTestCase {
         // Tap on Cell
         let firstCell = tableView.cells.element(boundBy: 0)
         firstCell.tap()
-        
+        let _ = app.waitForExistence(timeout: 3.0)
         XCTAssertFalse(app.isSearchOnScreen, "New Screen must be open")
+        
         
         XCTAssertTrue(app.isDetailsOnScreen, "Details Screen should be on screen")
         

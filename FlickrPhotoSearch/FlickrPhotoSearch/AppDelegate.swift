@@ -76,8 +76,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                       isfriend: 0,
                                       isfamily: 0,
                                       urlT: "https://live.staticflickr.com/65535/48256336996_5a53a81b31_t.jpg",
-                                      heightT: "68",
-                                      widthT: "100",
+                                      heightT: 68,
+                                      widthT: 100,
                                       photoLoadStatus: .unknown)
                 let vm = SearchDetailsViewModel(view: view, title: "Image Details", photo: testphoto, api: FlickrAPI.store)
                 ImageStore.shared.purge()
